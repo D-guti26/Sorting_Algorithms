@@ -1,4 +1,4 @@
-// package Sorting_Algorithms;
+
 
 public class Main {
   
@@ -8,7 +8,8 @@ public class Main {
       System.out.print(" " + value);
       }
     
-    BubbleSort(arr);
+    // BubbleSort(arr);
+    SelectionSort(arr);
     System.out.println();
     
     for (int value : arr) {
@@ -22,7 +23,7 @@ public class Main {
     for (int i = 0; i < arr.length - 1; i++){
       for (int j = 0; j < arr.length - i - 1; j++){
         //swapping
-        if(arr[j] > arr[j  + 1]) {
+        if(arr[j] < arr[j  + 1]) {
             temp = arr[j];
             arr[j] = arr[j + 1];
             arr[j + 1] = temp;
@@ -32,7 +33,21 @@ public class Main {
     }
 
   }
-  // public static void Swamp(){
+  public static void SelectionSort(int[] arr){
+    int minIndex, temp;
+    
+    for (int i = 0; i < arr.length; i++){
+        minIndex = i;
 
-  // }
+        for (int j = i; j < arr.length; j ++){
+          if (arr[j] < arr[minIndex]) {
+            minIndex = j;
+          }
+        }
+        // Swap
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+  }
 }
